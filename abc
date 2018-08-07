@@ -1,0 +1,456 @@
+USE [Computer]
+GO
+/****** Object:  Table [dbo].[Account]    Script Date: 08/02/2018 8:31:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Account](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [nvarchar](50) NULL,
+	[pass] [nvarchar](50) NULL,
+	[name] [nvarchar](50) NULL,
+	[address] [nvarchar](200) NULL,
+	[email] [nvarchar](50) NULL,
+	[phone] [nchar](15) NULL,
+ CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[category]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[category](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[img] [nvarchar](50) NULL,
+	[link] [nvarchar](50) NULL,
+	[link2] [nvarchar](50) NULL,
+	[link3] [nvarchar](50) NULL,
+	[meta] [nvarchar](50) NULL,
+	[hide] [bit] NULL,
+	[order] [int] NULL,
+	[datebegin] [smalldatetime] NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Contact]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Contact](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[email] [nvarchar](50) NULL,
+	[description] [nvarchar](200) NULL,
+	[detail] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Contact] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Footer]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Footer](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[address] [nvarchar](100) NULL,
+	[phone] [char](15) NULL,
+	[Email] [nvarchar](100) NULL,
+	[meta] [nvarchar](50) NULL,
+	[order] [int] NULL,
+	[hide] [bit] NULL,
+	[datebegin] [smalldatetime] NULL,
+ CONSTRAINT [PK_Footer] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Logo]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Logo](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[image] [nvarchar](50) NULL,
+	[meta] [nvarchar](50) NULL,
+	[hide] [bit] NULL,
+	[order] [int] NULL,
+	[datebegin] [smalldatetime] NULL,
+ CONSTRAINT [PK_Logo] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[menu]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[menu](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[content] [ntext] NULL,
+	[link] [nvarchar](max) NULL,
+	[meta] [nvarchar](50) NULL,
+	[hide] [bit] NULL,
+	[order] [int] NULL,
+	[datebegin] [smalldatetime] NULL,
+ CONSTRAINT [PK_menu] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[News]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[News](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](300) NULL,
+	[img] [nvarchar](30) NULL,
+	[description] [nvarchar](max) NULL,
+	[detail] [ntext] NULL,
+	[meta] [nvarchar](max) NULL,
+	[hide] [bit] NULL,
+	[order] [int] NULL,
+	[datebegin] [date] NULL,
+ CONSTRAINT [PK_News] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Order]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Order](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[CreateDate] [datetime] NULL,
+	[CustomerID] [int] NULL,
+	[ShipName] [nvarchar](50) NULL,
+	[ShipPhone] [nvarchar](50) NULL,
+	[ShipAddress] [nvarchar](50) NULL,
+	[ShipEmail] [nvarchar](50) NULL,
+	[Status] [int] NULL,
+ CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[OrderDetail]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OrderDetail](
+	[ProductID] [int] NOT NULL,
+	[OrderID] [int] NOT NULL,
+	[Quantity] [int] NULL CONSTRAINT [DF_OrderDetail_Quantity]  DEFAULT ((1)),
+	[Price] [bigint] NULL,
+ CONSTRAINT [PK_OrderDetail] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC,
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[product]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[product](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[price] [bigint] NULL,
+	[img] [nvarchar](50) NULL,
+	[description] [ntext] NULL,
+	[quantity] [int] NULL,
+	[meta] [nvarchar](max) NULL,
+	[sale] [bit] NULL,
+	[percent] [int] NULL,
+	[hide] [bit] NULL,
+	[order] [int] NULL,
+	[datebegin] [smalldatetime] NULL,
+	[categoryid] [int] NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Slideshow]    Script Date: 08/02/2018 8:31:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Slideshow](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[image] [nvarchar](50) NULL,
+	[meta] [nvarchar](50) NULL,
+	[slideleft] [bit] NULL,
+	[hide] [bit] NULL,
+	[order] [int] NULL,
+	[datebegin] [smalldatetime] NULL,
+ CONSTRAINT [PK_Slideshow] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET IDENTITY_INSERT [dbo].[Account] ON 
+
+INSERT [dbo].[Account] ([id], [Username], [pass], [name], [address], [email], [phone]) VALUES (1, N'admin', N'123456', N'hà tuấn vũ', N'lê trọng tấn, tp.hcm', N'tuanvu272@gmail.com', N'01665675694    ')
+INSERT [dbo].[Account] ([id], [Username], [pass], [name], [address], [email], [phone]) VALUES (2, N'a', N'123', N'q', N'tn', N'a@gmail.com', N'1234           ')
+INSERT [dbo].[Account] ([id], [Username], [pass], [name], [address], [email], [phone]) VALUES (3, N'b', N'12', N'c', N'nt', N'b@gmail.com', N'123456         ')
+INSERT [dbo].[Account] ([id], [Username], [pass], [name], [address], [email], [phone]) VALUES (4, N'ft', N'32', N'ad 1', N'hyikh', N's@gmail.com', N'7778900        ')
+INSERT [dbo].[Account] ([id], [Username], [pass], [name], [address], [email], [phone]) VALUES (5, N'ta', N'123', N'c', N'ety', N'b@gmail.com', N'7778900        ')
+SET IDENTITY_INSERT [dbo].[Account] OFF
+SET IDENTITY_INSERT [dbo].[category] ON 
+
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (1, N'Máy tính bàn', NULL, N'may-tinh-tab-1', N'may-tinh-tab-2', N'may-tinh-tab-3', N'may-tinh-ban', 1, 3, CAST(N'2018-03-13 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (2, N'Laptop', NULL, N'laptop-tab-1', N'laptop-tab-2', N'laptop-tab-3', N'lap-top', 1, 1, CAST(N'2018-03-13 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (3, N'Điện thoại & Tablets', N'14.png', N'dien-thoai-tab-1', N'dien-thoai-tab-2', N'dien-thoai-tab-3', N'dien-thoai-tablets', 1, 2, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (4, N'Phụ kiện', NULL, N'phu-kien-tab-1', N'phu-kien-tab-2', N'phu-kien-tab-3', N'phu-kien', 1, 4, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (5, N'Thiết bị mạng', NULL, NULL, NULL, NULL, N'thiet-bi-mang', 1, 5, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (6, N'Thiết bị văn phòng', NULL, NULL, NULL, NULL, N'thiet-bi-van-phong', 1, 6, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (7, N'Chuột & Bàn phím', NULL, NULL, NULL, NULL, N'chuot-ban-phim', 1, 7, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (8, N'Màn hình máy tính', NULL, NULL, NULL, NULL, N'man-hinh-may-tinh', 1, 8, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (9, N'Linh kiện', NULL, NULL, NULL, NULL, N'linh-kien', 1, 9, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (10, N'Thiết bị an ninh', NULL, NULL, NULL, NULL, N'thiet-bi-an-ninh', 1, 10, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (11, N'Phần mềm', NULL, NULL, NULL, NULL, N'phan-mem', 1, 11, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[category] ([id], [name], [img], [link], [link2], [link3], [meta], [hide], [order], [datebegin]) VALUES (12, N'Thiết bị âm thanh', N'18.png', NULL, NULL, NULL, N'thiet-bi-am-thanh', 1, 12, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+SET IDENTITY_INSERT [dbo].[category] OFF
+SET IDENTITY_INSERT [dbo].[Contact] ON 
+
+INSERT [dbo].[Contact] ([id], [name], [email], [description], [detail]) VALUES (1, N'vu', N'vutuanha@gmail.com', N'ad', N'ádf')
+INSERT [dbo].[Contact] ([id], [name], [email], [description], [detail]) VALUES (2, N'trung', N'trung@gmail.com', N'kt', N'agd')
+SET IDENTITY_INSERT [dbo].[Contact] OFF
+SET IDENTITY_INSERT [dbo].[Footer] ON 
+
+INSERT [dbo].[Footer] ([id], [address], [phone], [Email], [meta], [order], [hide], [datebegin]) VALUES (1, N'138 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh', N'01665675694    ', N'tuanvu@business.com', NULL, NULL, 1, CAST(N'2018-02-04 00:00:00' AS SmallDateTime))
+SET IDENTITY_INSERT [dbo].[Footer] OFF
+SET IDENTITY_INSERT [dbo].[Logo] ON 
+
+INSERT [dbo].[Logo] ([id], [name], [image], [meta], [hide], [order], [datebegin]) VALUES (1, N'Logo', N'logo2.png', N'logo', 1, 1, CAST(N'2018-12-04 00:00:00' AS SmallDateTime))
+SET IDENTITY_INSERT [dbo].[Logo] OFF
+SET IDENTITY_INSERT [dbo].[menu] ON 
+
+INSERT [dbo].[menu] ([id], [name], [content], [link], [meta], [hide], [order], [datebegin]) VALUES (1, N'Giới thiệu', N'Công ty Cổ phần đầu tư Thế Giới Di Động vận hành hai chuỗi bán lẻ là thegioididong.com và dienmay.com, trong những năm qua, công ty đã liên tục phát triển nhanh và ổn định bất chấp tình hình kinh tế thuận lợi hay khó khăn.
+
+Chuỗi Thegioididong.com được thành lập từ 2004 chuyên bán lẻ các sản phẩm kỹ thuật số di động bao gồm điện thoại di động, máy tính bảng, laptop và phụ kiện với hơn 1100 siêu thị tại 63 tỉnh thành trên khắp Việt Nam.
+
+ 
+
+Chuỗi Dienmay.com được ra đời từ cuối 2010 chuyên bán lẻ các sản phẩm điện tử tiêu dùng như ti vi, dàn karaoke, tủ lạnh, máy giặt, nồi cơm điện, sinh tố, bàn ủi, bếp điện từ, lò vi sóng, máy hút bụi… và các sản phẩm kỹ thuật số như điện thoại di động, máy tính bảng, laptop và phụ kiện. Ngày 04/5/2015, dienmay.com chính thức được đổi tên thành ĐIỆN MÁY XANH, với hơn 600 siêu thị hiện diện tại khắp 63 tỉnh thành.', NULL, N'gioi-thieu', 1, 1, CAST(N'2018-03-09 00:00:00' AS SmallDateTime))
+INSERT [dbo].[menu] ([id], [name], [content], [link], [meta], [hide], [order], [datebegin]) VALUES (3, N'Tin tức', NULL, NULL, N'tin-tuc', 1, 3, CAST(N'2018-03-09 00:00:00' AS SmallDateTime))
+INSERT [dbo].[menu] ([id], [name], [content], [link], [meta], [hide], [order], [datebegin]) VALUES (4, N'Liên hệ', NULL, NULL, N'lien-he', 1, 4, CAST(N'2018-03-09 00:00:00' AS SmallDateTime))
+SET IDENTITY_INSERT [dbo].[menu] OFF
+SET IDENTITY_INSERT [dbo].[News] ON 
+
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (2, N'Sẽ có 150 triệu màn hình LCD dành cho iPhone được sản xuất trong năm nay', N'17-04-18-12-01-15-galaxys9.jpg', N'Theo những rò rỉ gần đây, Apple sẽ ra mắt 3 mẫu iPhone thế hệ mới vào tháng 9. Trong đó, có mẫu sẽ dùng LCD và có mẫu sẽ sử dụng tấm nền OLED. Vậy hiện nay có bao nhiêu nhà sản xuất màn hình có thể đáp ứng được yêu cầu này của Apple?Dẫn lại nguồn tin từ Hàn Quốc, Pocketnow cho biết: Có khoảng 55 triệu tấm nền OLED sẽ được sản xuất cho 2 trong 3 mẫu iPhone 2018 trong khi màn hình LCD được sản xuất năm nay sẽ lên đến 150 triệu đơn vị.', N'Theo những rò rỉ gần đây, Apple sẽ ra mắt 3 mẫu iPhone thế hệ mới vào tháng 9. Trong đó, có mẫu sẽ dùng LCD và có mẫu sẽ sử dụng tấm nền OLED. Vậy hiện nay có bao nhiêu nhà sản xuất màn hình có thể đáp ứng được yêu cầu này của Apple?
+Dẫn lại nguồn tin từ Hàn Quốc, Pocketnow cho biết: Có khoảng 55 triệu tấm nền OLED sẽ được sản xuất cho 2 trong 3 mẫu iPhone 2018 trong khi màn hình LCD được sản xuất năm nay sẽ lên đến 150 triệu đơn vị.
+
+Điều này có thể sẽ làm cho Apple ưu tiên những nhà sản xuất như Japan Display và Sharp hơn là Samsung Display hay LG Display. Bởi vì hiện tại, LG cũng đang chuyển dần từ LCD qua OLED.
+
+Mới đầu tuần này, Digitimes cho hay Apple sẽ mua tới 130 triệu màn hình OLED và 70 triệu màn hình LCD cho bộ ba iPhone năm 2018.
+
+Nguồn tin này dựa vào doanh số iPhone X chưa được như kỳ vọng của Apple. Được biết kể từ đầu năm nay, Apple đã phải cắt giảm từ 100 triệu sản phẩm xuống 90 triệu và mới đây là 75 triệu. Doanh số bán iPhone của Apple nằm dưới mức kỳ vọng của thị trường vì sự thờ ơ của người dùng với mẫu iPhone kỉ niệm 10 năm.', N'150trieumanhinhlcddanhchoiphoneduocsanxuatnamnay', 1, 4, CAST(N'2018-03-23' AS Date))
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (3, N'Ấn tượng với ảnh render HTC U12+ dựa trên những thông tin rò rỉ', N'htc-u12-plus-concep.jpg', N'HTC hiện đang chuẩn bị ra mắt chiếc smartphone flagship tiếp theo vào đầu tháng 5 tới, dự kiến model này sẽ có tên gọi là HTC U12+ thay vì U12.
+Trước đó, có thông tin HTC cố ý đặt chữ "Plus" vào tên của thiết bị bởi họ muốn cạnh tranh với Galaxy S9+ của Samsung, nhưng hãng sẽ không ra mắt phiên bản tiêu chuẩn U12 để cạnh tranh với Galaxy S9.', N'Ấn tượng với ảnh render HTC U12+ dựa trên những thông tin rò rỉ
+Dương Lê 1 giờ trước
+Ấn tượng với render HTC U12+ dựa trên những thông tin rò rỉ
+HTC hiện đang chuẩn bị ra mắt chiếc smartphone flagship tiếp theo vào đầu tháng 5 tới, dự kiến model này sẽ có tên gọi là HTC U12+ thay vì U12.
+Trước đó, có thông tin HTC cố ý đặt chữ "Plus" vào tên của thiết bị bởi họ muốn cạnh tranh với Galaxy S9+ của Samsung, nhưng hãng sẽ không ra mắt phiên bản tiêu chuẩn U12 để cạnh tranh với Galaxy S9.
+
+Mới đây, dựa trên các thông tin rò rỉ trước đó về HTC U12+, nhà thiết kế Concept Creator trên Twitter đã render hình dáng của model này một cách chi tiết để người dùng dễ hình dung hơn.
+
+Màn hình của máy có thiết kế viền siêu mỏng còn mặt lưng được phủ kính. Máy có 4 camera chia đều cho mặt trước và sau.
+
+
+
+
++2
+Dự kiến, HTC U12+ ​​sẽ sở hữu màn hình LCD WQHD+ 6 inch, dùng chip Qualcomm Snapdragon 845, kết hợp với RAM 6 GB và ROM 128 GB. Camera kép 16 MP + 12 MP phía sau, còn camera kép selfie đều có độ phân giải 8 MP.
+
+Máy có cả cảm biến vân tay và tính năng nhận dạng khuôn mặt để tăng tính bảo mật. HTC U12+ sẽ được cài sẵn hệ điều hành Android Oreo và dung lượng pin 3.450 mAh.', N'an-tuong-voi-render-htc-u12-dua-tren-nhung-thong-tin-ro-ri', 1, 2, CAST(N'2018-03-23' AS Date))
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (4, N'Galaxy J8 (2018) vừa đạt chứng nhận Wi-Fi, máy sẽ sớm trình làng', N'fa_galaxyj8.jpg', N'Mới đây một thiết bị của Samsung có model SM-J800FN đã đạt chứng nhận tại Wi-Fi Alliance. Ít ngày trước, phiên bản có model tương tự cũng đã xuất hiện trên Geekbench. Điều này cho thấy máy đã sẵn sàng được tung ra thị trường.
+Dựa trên quy tắc đặt tên của Samsung, thiết bị này có thể là Galaxy J8 (2018). Ngoài việc đạt chứng nhận Wi-Fi, nó cũng cho thấy máy đang chạy trên nền tảng Android 8.0 Oreo. Kết quả trên Geekbench trước đó cho thấy, máy sử dụng vi xử lý Exynos 7870, bộ nhớ RAM 3 GB.', N'Galaxy J8 (2018) vừa đạt chứng nhận Wi-Fi, máy sẽ sớm trình làng
+Hữu Tình 5 giờ trước 13 bình luận
+Galaxy J8 (2018) đạt chứng nhận Wi-Fi, rất gần với ngày trình làng
+Ảnh minh họa
+Mới đây một thiết bị của Samsung có model SM-J800FN đã đạt chứng nhận tại Wi-Fi Alliance. Ít ngày trước, phiên bản có model tương tự cũng đã xuất hiện trên Geekbench. Điều này cho thấy máy đã sẵn sàng được tung ra thị trường.
+Dựa trên quy tắc đặt tên của Samsung, thiết bị này có thể là Galaxy J8 (2018). Ngoài việc đạt chứng nhận Wi-Fi, nó cũng cho thấy máy đang chạy trên nền tảng Android 8.0 Oreo. Kết quả trên Geekbench trước đó cho thấy, máy sử dụng vi xử lý Exynos 7870, bộ nhớ RAM 3 GB.
+
+Có nhiều báo cáo cũng cho hay: Galaxy J8 (2018) sẽ được trang bị màn hình vô cực tương tự như Galaxy A8 (2018). Ngoài ra, phiên bản Galaxy J8+ (2018) cũng sẽ có thiết kế tương tự như Galaxy A8+ (2018).
+
+Galaxy J8 (2018) đạt chứng nhận Wi-Fi, rất gần với ngày trình làng
+Phiên bản SM-J805G có thể gọi là Galaxy J8+ (2018) cũng đã xuất hiện ít ngày trước đây trên Geekbench, máy dùng vi xử lý Snapdragon 625 cùng bộ nhớ RAM 4 GB, nâng cấp một chút so với Galaxy J8 (2018).
+
+Việc tung ra các phiên bản Galaxy J8 và Galaxy J8+ với màn hình vô cực sẽ mang lại yếu tố nhất quán cho những dòng sản phẩm của Samsung. Như vậy, Galaxy S9, S9+ là phân khúc cao cấp, Galaxy A8, A8+ là phân khúc cận cao cấp, trong khi Galaxy J8, J8+ sẽ là phân khúc giá tầm trung, phải chăng hơn.
+
+Mục tiêu của Samsung đó là đưa màn hình vô cực lên nhiều mẫu smartphone trải dài ở nhiều phân khúc của thị trường. Ngoài ra, nó cũng giúp hãng có thể cạnh tranh tốt hơn với những đối thủ từ Trung Quốc.', N'galaxy-j8-2018-vua-dat-chung-nhan-wifi-may-se-som-trinh-lang', 1, 3, CAST(N'2018-03-23' AS Date))
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (5, N'OPPO A1 bất ngờ ra mắt: Màn hình 18:9, RAM 4GB, ROM 64GB, giá 5 triệu đồng', N'oppoa1.png', N'Hôm nay (23/3), OPPO đã lặng lẽ công bố một chiếc điện thoại mới mang tên OPPO A1. Sản phẩm mới này xuất hiện chỉ vài ngày sau khi OPPO R15 và R15 Dream Mirror Edition ra mắt với màu sắc mới mẻ, giá cả phải chăng nhưng dường như OPPO đã bỏ quên một tính năng quan trọng.', N'OPPO A1 bất ngờ ra mắt: Màn hình 18:9, RAM 4GB, ROM 64GB, giá 5 triệu đồng
+Trần Quốc Toàn 5 giờ trước 18 bình luận
+OPPO A1
+Hôm nay (23/3), OPPO đã lặng lẽ công bố một chiếc điện thoại mới mang tên OPPO A1. Sản phẩm mới này xuất hiện chỉ vài ngày sau khi OPPO R15 và R15 Dream Mirror Edition ra mắt với màu sắc mới mẻ, giá cả phải chăng nhưng dường như OPPO đã bỏ quên một tính năng quan trọng.
+Thiết kế
+OPPO đã không ngần ngại khi sử dụng những màu sắc đậm cho chiếc smartphone mới của mình với ba màu: xanh đậm, đỏ anh đào và trắng. Phiên bản màu xanh đậm thực sự rất đẹp.
+
+Smartphone mới của OPPO này được thiết kế với tổng thể đơn giản nhưng sang trọng với mặt kính 2.5 D, các góc được bo tròn, mặt sau là máy ảnh và đèn flash LED.
+
+OPPO A1
+Thông số kỹ thuật
+OPPO A1 sở hữu màn hình hiển thị rộng 5.7 inch với tỉ lệ 18:9, tuy nhiên độ phân giải của màn hình vẫn chưa được tiết lộ. OPPO A1 được trang bị RAM 4 GB và ROM 64 GB, thông tin về chip mà thiết bị này sử dụng vẫn còn là một ẩn số.
+
+Thiết bị này được trang bị camera trước 8 MP và camera sau 16 MP nhưng có thể cho phép chụp ảnh lên đến 50 MP nhờ tính năng interpolation. Dung lượng pin của OPPO A1 là 3180 mAh.
+
+Bên cạnh đó, OPPO A1 còn được trang bị tính năng nhận diện khuôn mặt. Tuy nhiên tính năng mở khóa bằng vân tay lại không được trang bị, một điều không tưởng đối với các dòng smartphone hiện nay. Liệu có phải OPPO đang có những tính toán nào đó, điều gì khiến OPPO có những quyết định như vậy vẫn đang là một dấu hỏi lớn.
+
+OPPO A1
+Giá bán và ngày ra mắt
+OPPO A1 được bán với giá ¥ 1399 (~ 5 triệu đồng) và sẽ được bán vào lúc 10 giờ sáng ngày 1 tháng 4. Hiện tại phiên bản màu xanh đậm và đỏ đã có sẵn để đặt hàng trước.
+
+Nguồn: Gizmochina', N'oppo-a1-bat-ngo-ra-mat-man-hinh-18-9-4gb-64gb-gia-5-trieu', 1, 2, CAST(N'2018-03-23' AS Date))
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (6, N'Instagram đã cho phép người dùng tự quyết việc làm mới news feed', N'intagram.jpg', N'Thời gian vừa qua, Instagram đã liên tục có những cập nhật mới cho ứng dụng của mình. Hôm nay, một tính năng mới của ứng dụng này vừa được ra mắt nhằm cải thiện và đáp ứng nhu cầu của người dùng.
+Vừa qua, Instagram đã có cập nhật mới khi cho phép người dùng thêm các hashtag và liên kết vào phần giới thiệu trên trang cá nhân.', N'Instagram đã cho phép người dùng tự quyết việc làm mới news feed
+Trần Quốc Toàn 7 giờ trước
+Instagram
+Thời gian vừa qua, Instagram đã liên tục có những cập nhật mới cho ứng dụng của mình. Hôm nay, một tính năng mới của ứng dụng này vừa được ra mắt nhằm cải thiện và đáp ứng nhu cầu của người dùng.
+Vừa qua, Instagram đã có cập nhật mới khi cho phép người dùng thêm các hashtag và liên kết vào phần giới thiệu trên trang cá nhân.
+
+Hôm nay, Instagram đang bắt đầu triển khai một nút Bài đăng mới trên giao diện của người dùng. Thuật toán này cho thấy họ đã chuyển nguồn cung cấp dữ liệu theo trình tự thời gian trở về thuật toán của năm 2016.
+
+Instagram
+Khi người dùng nhấn vào nút này, bản tin của họ sẽ được làm mới chứ không tự động như trước kia. Điều này giúp người dùng kiểm soát được thời gian mà họ muốn làm mới newsfeed của mình.
+
+Sở dĩ có sự thay đổi này là vì đã có rất nhiều người dùng phàn nàn về việc bản tin trên Instagram được tự động làm mới khiến họ cảm thấy khó chịu vì có những tin chưa kịp đọc. Tính năng mới này tương tự như nút Xem Tweets mới của Twitter.
+
+instagram
+Sự thay đổi này sẽ đảm bảo rằng các bài đăng mới hơn được hiển thị trên đầu trang bản tin Instagram của người dùng. Điều này đồng nghĩa bạn vẫn có thể xem các bài đăng từ 6 ngày trước nếu bạn không có thời gian để truy cập ứng dụng này trong thời gian đó. Theo Facebook, việc này sẽ đảm bảo rằng các tin và bài đăng vẫn còn mới và giúp người dùng bỏ không bỏ lỡ những bài viết gần đây và tin tức của những người họ muốn xem. 
+
+instagram
+Instagram cho biết trong vài tháng tới ứng dụng này sẽ còn rất nhiều thay đổi và cải tiến. Chúng ta hãy chờ đợi những tính năng mới từ ứng dụng này nhé.
+
+"Mục tiêu của chúng tôi là trở thành nơi tốt nhất để chia sẻ và kết nối những người và sở thích phù hợp nhất đến với bạn" - Instagram cho biết.
+
+Nguồn: PhoneArena', N'instagram-cho-phep-nguoi-dung-tu-quyet-viec-lam-moi-newsfeed', 1, 1, CAST(N'2018-03-23' AS Date))
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (8, N'Rò rỉ hình ảnh Render của Moto E5 Plus với màn hình tỉ lệ 18:9', N'5_800x450-300x200.jpg', N'Gần đây, đã xuất hiện khá nhiều thông tin về dòng sản phẩm Moto E và G series của Motorola. Cách đây ít ngày, Moto E5 Plus đã xuất hiện trên cơ sở dữ liệu Geekbench và mới đây hình ảnh render của thiết bị này đã xuất hiện.', N'Gần đây, đã xuất hiện khá nhiều thông tin về dòng sản phẩm Moto E và G series của Motorola. Cách đây ít ngày, Moto E5 Plus đã xuất hiện trên cơ sở dữ liệu Geekbench và mới đây hình ảnh render của thiết bị này đã xuất hiện.
+Ở mặt trước, Moto E5 Plus sở hữu màn hình tỉ lệ 18:9, cạnh viền được làm cong quyến rũ và mặt lưng cũng được bo cong nhẹ để mang lại cảm giác cầm nắm thoải mái hơn. Chưa hết, viền trên của smartphone là vị trí đặt camera selfie, loa thoại, cảm biến và đèn flash Led. Ngoài ra, bộ khung của Moto E5 Plus được hoàn thiện bằng chất liệu kim loại cùng với đó là phần mặt lưng có thể được làm từ nhựa hoặc kính và cạnh phải được tích hợp nút tăng giảm âm lượng, nút nguồn.
+
+Nhìn qua cứ tưởng ở mặt lưng máy đang sử dụng hệ thống camera kép nhưng thực ra nó chỉ được sử dụng một camera mà thôi. Ngay bên dưới camera chính là cảm biến vân tay tiện lợi.Dự kiến, Moto E5 Plus sẽ ra mắt với hai phiên bản màu sắc khác nhau bao gồm màu đen và vàng cho người dùng chọn lựa.', N'Ro-ri-hinh-anh-Render-cua-Moto-E5-Plus-voi-man-hinh-ti-le-189', 1, 3, CAST(N'2018-04-16' AS Date))
+INSERT [dbo].[News] ([id], [name], [img], [description], [detail], [meta], [hide], [order], [datebegin]) VALUES (9, N'Samsung giành được bằng sáng chế với thiết kế smartphone có tai thỏ', N'logo.png', N'Samsung vừa qua đã giành được bằng sáng chế cho thiết kế smartphone với màn hình có tai thỏ. Bằng sáng chế này đã được nộp cho Cục sở hữu trí tuệ Trung Quốc SIPO vào ngày 30 tháng 3 năm 2018.', N'Samsung vừa qua đã giành được bằng sáng chế cho thiết kế smartphone với màn hình có tai thỏ. Bằng sáng chế này đã được nộp cho Cục sở hữu trí tuệ Trung Quốc SIPO vào ngày 30 tháng 3 năm 2018.
+Thiết kế này được thực hiện trên chiếc điện thoại có màn hình tràn viền với thiết lập hai camera ở phía sau, cổng USB-C. Điều bất ngờ là trên thiết kế lại vắng bóng cảm biến vân tay mà nhiều người đồn đoán nó sẽ được đặt trong màn hình hiển thị.
+
+Tính năng hiển thị tai thỏ là chủ đề gây tranh cãi trong cộng đồng Android trong thời gian qua sau lần đầu tiên xuất hiện trên iPhone X vào năm ngoái. Nhiều nhà sản xuất thiết bị Android đã tích hợp loại thiết kế này vào thiết bị của mình, mặc họ vẫn tìm cách để ngụy trang nó.
+
+', N'Samsung-gianh-duoc-bang-sang-che-voi-thiet-ke-smartphone-co-tai-tho', 1, 2, CAST(N'2018-04-17' AS Date))
+SET IDENTITY_INSERT [dbo].[News] OFF
+SET IDENTITY_INSERT [dbo].[Order] ON 
+
+INSERT [dbo].[Order] ([id], [CreateDate], [CustomerID], [ShipName], [ShipPhone], [ShipAddress], [ShipEmail], [Status]) VALUES (1, CAST(N'2018-04-25 11:36:15.343' AS DateTime), NULL, N'a', N'123', N'tp', N'a@gmail.com', NULL)
+INSERT [dbo].[Order] ([id], [CreateDate], [CustomerID], [ShipName], [ShipPhone], [ShipAddress], [ShipEmail], [Status]) VALUES (2, CAST(N'2018-05-15 09:30:59.080' AS DateTime), NULL, N'asd', N'0963564001', N'asd123', N'trung@gmail.com', NULL)
+SET IDENTITY_INSERT [dbo].[Order] OFF
+INSERT [dbo].[OrderDetail] ([ProductID], [OrderID], [Quantity], [Price]) VALUES (6, 1, 1, 230000)
+INSERT [dbo].[OrderDetail] ([ProductID], [OrderID], [Quantity], [Price]) VALUES (6, 2, 1, 230000)
+INSERT [dbo].[OrderDetail] ([ProductID], [OrderID], [Quantity], [Price]) VALUES (11, 2, 1, 18490000)
+SET IDENTITY_INSERT [dbo].[product] ON 
+
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (1, N'Quần jean nam', 230000, N'p5.jpg', N'mô tả', NULL, N'mo-ta1', 1, 15, 1, 1, CAST(N'2018-03-13 00:00:00' AS SmallDateTime), 1)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (2, N'Áo thun nam', 230000, N'p6.jpg', N'mô tả', NULL, N'mo-ta2', 1, 15, 1, 2, CAST(N'2018-03-13 00:00:00' AS SmallDateTime), 2)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (3, N'Áo nam', 230000, N'ld3.jpg', N'mô tả', NULL, N'mo-ta', 1, 20, 1, 3, CAST(N'2018-03-13 00:00:00' AS SmallDateTime), 1)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (4, N'Áo nam', 230000, N'ld4.jpg', N'mô tả', NULL, N'mo-ta', 1, 25, 1, 3, CAST(N'2018-03-13 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (5, N'Quần jean nam', 230000, N'ld2.jpg', N'mô tả', NULL, N'mo-ta', 1, 20, 1, 1, CAST(N'2018-03-13 00:00:00' AS SmallDateTime), 1)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (6, N'Áo thun nam', 230000, N'ld1.jpg', N'mô tả', NULL, N'mo-ta', 1, 15, 1, 2, CAST(N'2018-03-13 00:00:00' AS SmallDateTime), 2)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (7, N'điện thoại', 500000, N'p72.jpg', N'mô tả', NULL, N'mo-ta', NULL, 0, 1, 1, CAST(N'2018-03-21 00:00:00' AS SmallDateTime), 1)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (8, N'ipad', 100000, N'p73.jpg', N'mô tả', NULL, N'mo-ta', NULL, NULL, 1, 1, CAST(N'2018-03-21 00:00:00' AS SmallDateTime), 1)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (9, N'ipad2', 200000, N'p74.jpg', N'mô tả', NULL, N'mo-ta', NULL, NULL, 1, 1, CAST(N'2018-03-21 00:00:00' AS SmallDateTime), 1)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (11, N'Điện thoại SamSung Galaxy S6 Edge', 18490000, N's6edge.png', N'<p>Sansung galaxy</p>
+', NULL, N'a', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (12, N'Điện thoại SamSung Galaxy Note 5', 17990000, N'note5.png', NULL, NULL, N'b', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (13, N'Điện thoại SamSung Galaxy S6 Edge Plus', 19990000, N's6edgeplus.png', NULL, NULL, N'g', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (14, N'Điện thoại SamSung Galaxy S6', 14490000, N's6.png', NULL, NULL, N't', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (15, N'Điện thoại SamSung Galaxy Note 4', 11490000, N'note4.png', NULL, NULL, N'f', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (16, N'Điện thoại SamSung Galaxy A8', 10990000, N'a8.png', NULL, NULL, N'r', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (17, N'Điện thoại SamSung Galaxy A5', 6990000, N'a5.png', NULL, NULL, N'e', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (18, N'Điện thoại SamSung Galaxy A7', 7990000, N'a7.png', NULL, NULL, N'c', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (19, N'Điện thoại iPhone 6s Plus 128GB', 27490000, N'6s.png', NULL, NULL, N'n', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (20, N'Điện thoại iPhone 6s Plus 64GB', 24690000, N'6splus.jpg', NULL, NULL, N't', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (21, N'Điện thoại Sony Xperia Z3 Plus', 13990000, N'z3p.png', NULL, NULL, N'q', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (22, N'Điện thoại iPhone 6 Plus 64GB', 21590000, N'ip6.jpg', NULL, NULL, N'a', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (23, N'Điện thoại iPhone 6s 64GB', 21790000, N'ip6plus.png', NULL, NULL, N'x', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (24, N'Điện thoại Sony Xperia Z5 Premium Dual', 19990000, N'z5p.jpg', NULL, NULL, N'z', NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (25, N'Điện thoại Sony Xperia Z5 Dual', 15990000, N'z5d.png', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (26, N'Điện thoại Sony Xperia Z5 Compact', 14990000, N'z5c.png', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (27, N'Điện thoại Sony Xperia M5 Dual', 9990000, N'm5.png', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (28, N'Điện thoại Sony Xperia M4 Aqua Dual', 4990000, N'm4.jpg', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (29, N'Điện thoại Sony Xperia C5 Dual Ultra', 7990000, N'c5.png', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (30, N'Điện thoại Sony Xperia C4 Dual', 6990000, N'c4.png', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (31, N'Điện thoại OPPO R7 Plus', 11490000, N'r7p.jpg', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (32, N'Điện thoại OPPO R7s', 9490000, N'r7s.png', NULL, NULL, NULL, NULL, NULL, 1, NULL, CAST(N'2018-03-24 00:00:00' AS SmallDateTime), 3)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (34, N'Asus S510UA i5 8250U/4GB/1TB/Win10/(BQ414T)', 16290000, N'17-04-18-08-21-33-lumia640.jpg', N'<h2>Đặc điểm nổi bật của Asus S510UA i5 8250U/4GB/1TB/Win10/(BQ414T)</h2>
+', NULL, N'AsusS510UAi58250U4GB1TBWin10BQ414T', 0, NULL, 1, 5, CAST(N'2018-04-16 00:00:00' AS SmallDateTime), 2)
+INSERT [dbo].[product] ([id], [name], [price], [img], [description], [quantity], [meta], [sale], [percent], [hide], [order], [datebegin], [categoryid]) VALUES (35, N'Lenovo Ideapad', 8900000, N'a9.png', N'<p>m&ocirc; tả</p>
+', NULL, N'Lenovo-Ideapad', 1, NULL, 1, 4, CAST(N'2018-04-17 00:00:00' AS SmallDateTime), 2)
+SET IDENTITY_INSERT [dbo].[product] OFF
+SET IDENTITY_INSERT [dbo].[Slideshow] ON 
+
+INSERT [dbo].[Slideshow] ([id], [name], [image], [meta], [slideleft], [hide], [order], [datebegin]) VALUES (1, NULL, N'banner-sony-z.png', N'slide-1', NULL, 1, 2, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[Slideshow] ([id], [name], [image], [meta], [slideleft], [hide], [order], [datebegin]) VALUES (2, NULL, N'slider1.jpg', N'slide-2', NULL, 1, 1, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[Slideshow] ([id], [name], [image], [meta], [slideleft], [hide], [order], [datebegin]) VALUES (3, NULL, N'slide-option2.jpg', N'slide-3', NULL, 1, 2, CAST(N'2018-03-21 00:00:00' AS SmallDateTime))
+INSERT [dbo].[Slideshow] ([id], [name], [image], [meta], [slideleft], [hide], [order], [datebegin]) VALUES (4, NULL, N'slide-left.jpg', N'slide-left1', 1, NULL, 1, CAST(N'2018-03-04 00:00:00' AS SmallDateTime))
+INSERT [dbo].[Slideshow] ([id], [name], [image], [meta], [slideleft], [hide], [order], [datebegin]) VALUES (5, NULL, N'slide-left2.jpg', N'slide-left2', 1, NULL, 2, CAST(N'2018-03-04 00:00:00' AS SmallDateTime))
+INSERT [dbo].[Slideshow] ([id], [name], [image], [meta], [slideleft], [hide], [order], [datebegin]) VALUES (6, NULL, N'slide-left3.png', N'slide-left3', 1, NULL, 3, CAST(N'2018-03-04 00:00:00' AS SmallDateTime))
+SET IDENTITY_INSERT [dbo].[Slideshow] OFF
+ALTER TABLE [dbo].[OrderDetail]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetail_Order] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Order] ([id])
+GO
+ALTER TABLE [dbo].[OrderDetail] CHECK CONSTRAINT [FK_OrderDetail_Order]
+GO
+ALTER TABLE [dbo].[OrderDetail]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetail_product] FOREIGN KEY([ProductID])
+REFERENCES [dbo].[product] ([id])
+GO
+ALTER TABLE [dbo].[OrderDetail] CHECK CONSTRAINT [FK_OrderDetail_product]
+GO
+ALTER TABLE [dbo].[product]  WITH CHECK ADD  CONSTRAINT [FK_product_category] FOREIGN KEY([categoryid])
+REFERENCES [dbo].[category] ([id])
+GO
+ALTER TABLE [dbo].[product] CHECK CONSTRAINT [FK_product_category]
+GO
